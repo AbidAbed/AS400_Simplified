@@ -10,6 +10,8 @@ const path = require("path");
 const UsersModel = require("./Models/Users");
 const bcrypt = require("bcrypt");
 const AuthoritiesModel = require("./Models/Authorities");
+const MainRouter = require("./Routes/MainRouter");
+const cors = require("cors");
 
 //------------------------ Server Configurations ------------------------------//
 
@@ -33,6 +35,14 @@ mongoose
     console.log("[-] ERROR ESTABLISHING CONNECTION TO DB");
     console.log("[-] " + err);
   });
+
+//-------- ADDING CORS MIDDLEWARE
+App.use(cors());
+
+//-------- ADDING JSON PARSER MIDDLEWARE
+
+App.use(bodyparser.urlencoded({ extended: false }));
+App.use(bodyparser.json());
 
 //-------- ADDING LOGGER MIDDLEWARE
 
@@ -105,3 +115,7 @@ AuthoritiesModel.create({
     console.log("[-] ERROR CREATING ROOT AUTHORITY");
     console.log("[-] " + err);
   });
+
+//-------- ROUTER CONFIGURATIONS
+
+App.use(MainRouter);
