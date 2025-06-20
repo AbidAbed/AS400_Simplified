@@ -70,7 +70,7 @@ AuthoritiesModel.create({
     // 2.1- HASH PASSWORD
 
     bcrypt
-      .hash(process.env.ROOT_ADMIN_USERNAME, Number(process.env.SALT_ROUNDS))
+      .hash(process.env.ROOT_ADMIN_PASS, Number(process.env.SALT_ROUNDS))
       .then((hashed_password) => {
         // 2.2- FIND THE ROOT AUTHORITY
         AuthoritiesModel.findOne({ name: "ROOT" })

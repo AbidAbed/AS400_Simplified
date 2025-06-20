@@ -20,8 +20,21 @@ AuthoritiesSchema.virtual("authedUsers", {
   justOne: false,
 });
 
-AuthoritiesSchema.set("toObject", { virtuals: true });
-AuthoritiesSchema.set("toJSON", { virtuals: true });
+AuthoritiesSchema.set("toObject", {
+  virtuals: true,
+  versionKey: false,
+  transform: removeId,
+});
+AuthoritiesSchema.set("toJSON", {
+  virtuals: true,
+  versionKey: false,
+  transform: removeId,
+});
+
+function removeId(doc, ret) {
+  delete ret.id;
+  return ret;
+}
 
 //--------  MODEL DEFINITION
 const AuthoritiesModel = mongoose.model("Authorities", AuthoritiesSchema);

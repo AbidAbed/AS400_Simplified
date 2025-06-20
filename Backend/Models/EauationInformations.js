@@ -7,8 +7,21 @@ const EauationInformationsSchema = new mongoose.Schema({
 
 //--------  RELATION DEFINITION
 
-EauationInformationsSchema.set("toObject", { virtuals: true });
-EauationInformationsSchema.set("toJSON", { virtuals: true });
+EauationInformationsSchema.set("toObject", {
+  virtuals: true,
+  versionKey: false,
+  transform: removeId,
+});
+EauationInformationsSchema.set("toJSON", {
+  virtuals: true,
+  versionKey: false,
+  transform: removeId,
+});
+
+function removeId(doc, ret) {
+  delete ret.id;
+  return ret;
+}
 
 //--------  MODEL DEFINITION
 const EauationInformationsModel = mongoose.model(

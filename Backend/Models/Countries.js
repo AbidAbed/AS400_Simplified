@@ -20,8 +20,21 @@ CountriesSchema.virtual("units", {
   justOne: false,
 });
 
-CountriesSchema.set("toObject", { virtuals: true });
-CountriesSchema.set("toJSON", { virtuals: true });
+CountriesSchema.set("toObject", {
+  virtuals: true,
+  versionKey: false,
+  transform: removeId,
+});
+CountriesSchema.set("toJSON", {
+  virtuals: true,
+  versionKey: false,
+  transform: removeId,
+});
+
+function removeId(doc, ret) {
+  delete ret.id;
+  return ret;
+}
 
 //--------  MODEL DEFINITION
 const CountriesModel = mongoose.model("Countries", CountriesSchema);

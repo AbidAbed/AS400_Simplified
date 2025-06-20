@@ -21,9 +21,21 @@ UsersSchema.virtual("authrizations", {
   justOne: false,
 });
 
-UsersSchema.set("toObject", { virtuals: true });
-UsersSchema.set("toJSON", { virtuals: true });
+UsersSchema.set("toObject", {
+  virtuals: true,
+  versionKey: false,
+  transform: removeId,
+});
+UsersSchema.set("toJSON", {
+  virtuals: true,
+  versionKey: false,
+  transform: removeId,
+});
 
+function removeId(doc, ret) {
+  delete ret.id;
+  return ret;
+}
 //--------  MODEL DEFINITION
 const UsersModel = mongoose.model("Users", UsersSchema);
 module.exports = UsersModel;
