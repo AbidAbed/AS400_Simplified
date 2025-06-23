@@ -13,6 +13,7 @@ import Login from "./Pages/Login/Login";
 import { usePostCheckTokenMutation } from "./Store/APIs/UserAPIs";
 import Banner from "./Components/Banner/Banner";
 import "./App.css";
+import { changeIsLoggedIn, fetchUser } from "./Store/StoreInterface";
 function App() {
   //--------------- STATES
   const config = useSelector((state) => state.config);
@@ -46,6 +47,12 @@ function App() {
       } else {
         setTimeout(() => {
           setIsLoading(false);
+          toast.success("Logged In Successfully", { delay: 1 });
+          setIsLoading(false);
+          dispatch(fetchUser(postChecktokenResponse.data));
+          navigate("/home");
+          localStorage.setItem("token", postChecktokenResponse.data.token);
+          dispatch(changeIsLoggedIn(true));
         });
       }
     }

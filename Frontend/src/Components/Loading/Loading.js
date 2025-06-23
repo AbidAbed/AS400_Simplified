@@ -12,7 +12,7 @@ function Loading() {
               textAlign: "center",
             }}
           >
-            البنك <h>&nbsp;&nbsp;&nbsp;&nbsp;</h>العربي
+            البنك <>&nbsp;&nbsp;&nbsp;&nbsp;</>العربي
           </div>
           <div style={{ fontFamily: "Neo Sans", fontSize: "20px" }}>
             ARAB BANK

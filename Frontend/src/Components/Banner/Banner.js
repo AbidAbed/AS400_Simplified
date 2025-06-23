@@ -7,7 +7,7 @@ function Banner() {
   //--------------- CONFIGURATIONS
   //--------------- HOOKS
   const location = useLocation();
-  console.log(isLoggedIn);
+  
   //--------------- USEEFFECTS
   //--------------- RENDERED CONTENT
   return isLoggedIn ? <div className="banner-parent"></div> : <></>;
