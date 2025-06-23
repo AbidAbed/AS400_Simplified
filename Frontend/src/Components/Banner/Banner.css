@@ -1,0 +1,7 @@
+.banner-parent {
+    display: flex;
+    background: #1203f3;
+    border-radius: 5px;
+    padding: 2.5%;
+    height: 88%;
+}

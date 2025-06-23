@@ -1,5 +1,5 @@
 const express = require("express");
-const UsersRouter = require("./UsersRoute");
+const usersRouter = require("./UsersRoute");
 const { isCelebrateError } = require("celebrate");
 
 //---------- MAIN ROUTER
@@ -39,10 +39,10 @@ async function errorHandler(err, req, res, next) {
 
 //---------- DEFINING THE MAIN ROUTER , IMAGINE IT AS A WATER FLOW 😈
 
-const MainRouter = express.Router();
+const mainRouter = express.Router();
 
-MainRouter.use("/user", UsersRouter);
+mainRouter.use("/user", usersRouter);
 
-MainRouter.use(errorHandler);
+mainRouter.use(errorHandler);
 
-module.exports = MainRouter;
+module.exports = mainRouter;

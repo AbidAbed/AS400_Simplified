@@ -6,7 +6,7 @@ const {
   CelebrateError,
 } = require("celebrate");
 
-const LoginValidator = celebrate({
+const loginValidator = celebrate({
   [Segments.BODY]: Joi.object()
     .keys({
       username: Joi.string().required().not().empty(),
@@ -17,4 +17,4 @@ const LoginValidator = celebrate({
     .empty(),
 });
 
-module.exports = LoginValidator;
+module.exports = loginValidator;

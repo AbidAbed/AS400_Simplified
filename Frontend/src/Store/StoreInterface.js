@@ -6,18 +6,32 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 // --------------- SLICES
 
 import { fetchUser, UserSlice } from "./Slices/UserSlice";
-import { ConfigSlice } from "./Slices/ConfigSlice";
+import { ConfigSlice, changeIsLoggedIn } from "./Slices/ConfigSlice";
 
 // --------------- APIS
-import { usePostLoginMutation, UserAPI } from "./APIs/UserAPIs";
+import {
+  usePostCheckTokenMutation,
+  usePostLoginMutation,
+  UserAPI,
+} from "./APIs/UserAPIs";
 
 // --------------- STORE CONFIGURATIONS
 const storeInterface = configureStore({
-  reducer: { user: UserSlice.reducer, config: ConfigSlice.reducer },
+  reducer: {
+    user: UserSlice.reducer,
+    config: ConfigSlice.reducer,
+    [UserAPI.reducerPath]: UserAPI.reducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(UserAPI.middleware),
 });
 
 setupListeners(storeInterface.dispatch);
 
-export { storeInterface, fetchUser, usePostLoginMutation };
+export {
+  storeInterface,
+  fetchUser,
+  usePostLoginMutation,
+  usePostCheckTokenMutation,
+  changeIsLoggedIn,
+};

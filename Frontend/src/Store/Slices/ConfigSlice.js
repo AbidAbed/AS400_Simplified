@@ -2,8 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const ConfigSlice = createSlice({
   name: "config",
-  initialState: {},
-  reducers: {},
+  initialState: {
+    isLoggedIn: false,
+  },
+  reducers: {
+    changeIsLoggedIn(state, action) {
+      return {
+        ...state,
+        isLoggedIn: action.payload,
+      };
+    },
+  },
 });
 
-export { ConfigSlice };
+const { changeIsLoggedIn } = ConfigSlice.actions;
+export { ConfigSlice, changeIsLoggedIn };

@@ -1,9 +1,19 @@
 const express = require("express");
-const LoginValidator = require("../Validators/Users/Login");
-const { Login } = require("../Controllers/Users/Login");
-//---------- MAIN ROUTER
 
-const UsersRouter = express.Router();
-UsersRouter.post("/login", LoginValidator, Login);
+//---------- VALIDATORS
 
-module.exports = UsersRouter;
+const loginValidator = require("../Validators/Users/Login");
+const checkTokenValidator = require("../Validators/Users/checkToken");
+
+//---------- CONTROLLERS
+
+const login = require("../Controllers/Users/Login");
+const checkToken = require("../Controllers/Users/CheckToken");
+
+//---------- USERS ROUTER
+
+const usersRouter = express.Router();
+usersRouter.post("/login", loginValidator, login);
+usersRouter.post("/checktoken", checkTokenValidator, checkToken);
+
+module.exports = usersRouter;

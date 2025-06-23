@@ -1,0 +1,18 @@
+.index-parent {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 5px;
+}
+
+.footer-credit {
+    font-family: 'Neo Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #666c74;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    background-color: #f5f7ff;
+    border-top: 1px solid #d0d4e0;
+    user-select: none;
+}

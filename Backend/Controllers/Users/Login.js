@@ -4,10 +4,20 @@ const jsonwebtoken = require("jsonwebtoken");
 
 //---------------- LOGIN API  : BASE_URL/user/login
 
-async function Login(request, response) {
+async function login(request, response) {
   try {
     // EXTRACTING DATA
     const { username, password } = request.body;
+
+    if (username == null || password == null)
+      return response.status(401).send({
+        statusCode: 401,
+        error: "Invalid Credentials",
+        message: "Wrong Username or Password",
+        validation: {
+          keys: [],
+        },
+      });
 
     // FIRST THINGS FIRST CALCULATE HASHED PASSWORD
     const hashed_password = await bcrypt.hash(
@@ -66,10 +76,16 @@ async function Login(request, response) {
       .status(200)
       .send({ ...foundReturnedUser.toObject(), token: token });
   } catch (exp) {
-    console.log("[-] ERROR LOGIN EXP");
+    console.log("[-] ERROR LOGIN " + exp);
+    return response.status(500).send({
+      statusCode: 500,
+      error: "Invalid Values",
+      message: "Invalid Values",
+      validation: {
+        keys: [],
+      },
+    });
   }
 }
 
-module.exports = {
-  Login,
-};
+module.exports = login;

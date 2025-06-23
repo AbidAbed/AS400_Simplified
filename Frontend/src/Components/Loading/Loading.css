@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Neo Sans';
+    src: url('../../../public/Fonts/neo-sans-std/Neo\ Sans\ Std\ Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.loading-container-parent {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(20deg,
+            rgba(81, 125, 245, 0.6) 100%,
+            rgba(255, 255, 255, 0.4) 36%,
+            rgba(255, 255, 255, 0.4) 59%,
+            rgba(255, 255, 255, 0.4) 74%,
+            rgba(147, 175, 253, 0.6) 90%);
+    top: 0;
+    left: 0;
+    z-index: 11;
+}
+
+.arabbank-logo {
+    color: #07204e;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-second-part {
+    position: relative;
+    right: 155px;
+    background-color: transparent;
+    text-align: center;
+}
+
+.loading-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin-left: 150px;
+}
