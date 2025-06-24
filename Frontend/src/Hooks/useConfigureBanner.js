@@ -3,7 +3,10 @@ import { MdManageAccounts } from "react-icons/md";
 import { IoIosLogOut } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
 
+// FUNCTION TO RETURN PATHS DEPENDING ON AUTH CODE
+
 function useConfigureBanner() {
+
   return (authrizations, isLoggedIn, currentPath) => {
     const isRoot = authrizations.find(
       (authrization) => authrization.name.toLowerCase() === "root"
@@ -23,7 +26,7 @@ function useConfigureBanner() {
           },
           {
             path: "/manage-users",
-            label: "Admin",
+            label: "Manage Users",
             icon: <MdManageAccounts size={20} color="white" />,
           },
           {

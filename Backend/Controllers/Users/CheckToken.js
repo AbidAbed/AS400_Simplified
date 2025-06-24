@@ -1,11 +1,13 @@
 const jsonwebtoken = require("jsonwebtoken");
 const UsersModel = require("../../Models/Users");
 
+//----------- API TO CHECK TOKEN VALIDITY
 async function checkToken(request, response) {
   try {
+    //----------- EXTRACT TOKEN FROM HEADERS
     const { token } = request.headers;
-    console.log(typeof token);
 
+    //----------- NO TOKEN FOUND
     if (!token)
       return response.status(401).send({
         statusCode: 403,
@@ -16,6 +18,7 @@ async function checkToken(request, response) {
         },
       });
 
+    //----------- VERIFY USING TOkENS_SECRET
     const isTokenValid = await jsonwebtoken.verify(
       token,
       process.env.TOkENS_SECRET
@@ -31,10 +34,13 @@ async function checkToken(request, response) {
         },
       });
 
+    //----------- DECODE TOKEN && EXTRACT USER ID
     const { _id, authCodes } = await jsonwebtoken.decode(
       token,
       process.env.TOkENS_SECRET
     );
+
+    //----------- CHECK IF USER EXISTS AND DON'T RETURN PASSWORD AND authrizedUsers
     const foundUser = await UsersModel.findById(_id)
       .select("-password")
       .populate({

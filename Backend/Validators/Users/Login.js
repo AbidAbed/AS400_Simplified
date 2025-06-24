@@ -6,6 +6,7 @@ const {
   CelebrateError,
 } = require("celebrate");
 
+//--------- VALIDATE EXSITANCE OF USERNAME AND PASSWORD IN THE SENT REQUEST
 const loginValidator = celebrate({
   [Segments.BODY]: Joi.object()
     .keys({

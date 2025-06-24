@@ -6,6 +6,8 @@ const {
   CelebrateError,
 } = require("celebrate");
 
+
+//--------- VALIDATE EXSITANCE OF TOKEN
 const checkTokenValidator = celebrate({
   [Segments.HEADERS]: Joi.object()
     .keys({
