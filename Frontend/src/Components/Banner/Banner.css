@@ -1,7 +1,37 @@
 .banner-parent {
     display: flex;
-    background: #1203f3;
+    flex-direction: column;
+    background: #0e0864;
     border-radius: 5px;
-    padding: 2.5%;
-    height: 88%;
+    height: 75vh;
+    justify-content: center;
+    gap: 70px;
+    padding: 1%;
+}
+
+.option-parent {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 5px;
+    padding: 9px;
+}
+
+.option-parent:hover {
+    background-color: #382ece;
+}
+
+.option-icon {
+    /* background-color: aqua; */
+    /* padding-top: 4px; */
+    align-items: center;
+
+}
+
+
+.option-label {
+    color: white;
 }

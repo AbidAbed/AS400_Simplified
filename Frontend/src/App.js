@@ -8,12 +8,19 @@ import {
   Routes,
   useNavigate,
 } from "react-router";
+import { usePostCheckTokenMutation } from "./Store/APIs/UserAPIs";
+import { changeIsLoggedIn, fetchUser } from "./Store/StoreInterface";
+
 import Loading from "./Components/Loading/Loading";
 import Login from "./Pages/Login/Login";
-import { usePostCheckTokenMutation } from "./Store/APIs/UserAPIs";
+import Logout from "./Pages/Logout/Logout";
+import Profile from "./Pages/Profile/Profile";
 import Banner from "./Components/Banner/Banner";
+import AdminPanel from "./Pages/AdminPanel/AdminPanel";
+import Home from "./Pages/Home/Home";
+
 import "./App.css";
-import { changeIsLoggedIn, fetchUser } from "./Store/StoreInterface";
+
 function App() {
   //--------------- STATES
   const config = useSelector((state) => state.config);
@@ -66,10 +73,11 @@ function App() {
       <div className="app-content">
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
-          {/* <Route path="/student" element={<ProtectedStudentRoute />}>
-        <Route path="*" element={<LoggedInStudent />} />
-      </Route> */}
+          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/manage-users" element={<AdminPanel />} />
         </Routes>
       </div>
     </div>
