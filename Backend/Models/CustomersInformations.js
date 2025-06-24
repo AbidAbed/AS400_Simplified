@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 
+// WORK WITH CIS BASED FILES , ( SHOULD SUPPORT CRUD IN BULK AND SINGLE)
+
+
 //--------  SCHEMA DEFINITION
 const CustomersInformationsSchema = new mongoose.Schema({
   name: { type: String, required: true },

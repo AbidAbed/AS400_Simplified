@@ -27,6 +27,11 @@ function useConfigureBanner() {
             icon: <MdManageAccounts size={20} color="white" />,
           },
           {
+            path: "/options-manager",
+            label: "Manage Options",
+            icon: <IoHomeOutline size={20} color="white" />,
+          },
+          {
             path: "/logout",
             label: "Logout",
             icon: <IoIosLogOut size={20} color="white" />,

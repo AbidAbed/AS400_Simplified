@@ -3,9 +3,28 @@ import "./Banner.css";
 import { useSelector } from "react-redux";
 import useConfigureBanner from "../../Hooks/useConfigureBanner";
 import { useEffect, useState } from "react";
+import { IoIosLogOut } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
+import { IoHomeOutline } from "react-icons/io5";
 function Banner() {
   //--------------- STATES
-  const [bannerOptions, setBannerOptions] = useState([]);
+  const [bannerOptions, setBannerOptions] = useState([
+    {
+      path: "/home",
+      label: "Home",
+      icon: <IoHomeOutline size={20} color="white" />,
+    },
+    {
+      path: "/profile",
+      label: "Profile",
+      icon: <CgProfile size={20} color="white" />,
+    },
+    {
+      path: "/logout",
+      label: "Logout",
+      icon: <IoIosLogOut size={20} color="white" />,
+    },
+  ]);
 
   //--------------- CONFIGURATIONS
   //--------------- HOOKS
@@ -29,7 +48,7 @@ function Banner() {
     navigate(path);
   }
   //--------------- RENDERED CONTENT
-  return isLoggedIn ? (
+  return (
     <div className="banner-parent">
       {bannerOptions.map((bannerOption) => (
         <div
@@ -45,8 +64,6 @@ function Banner() {
         </div>
       ))}
     </div>
-  ) : (
-    <></>
   );
 }
 

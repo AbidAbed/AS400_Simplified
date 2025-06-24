@@ -18,6 +18,7 @@ import Profile from "./Pages/Profile/Profile";
 import Banner from "./Components/Banner/Banner";
 import AdminPanel from "./Pages/AdminPanel/AdminPanel";
 import Home from "./Pages/Home/Home";
+import OptionsManager from "./Pages/OptionsManager/OptionsManager";
 
 import "./App.css";
 
@@ -60,7 +61,7 @@ function App() {
           navigate("/home");
           localStorage.setItem("token", postChecktokenResponse.data.token);
           dispatch(changeIsLoggedIn(true));
-        });
+        }, 4000);
       }
     }
   }, [postChecktokenResponse]);
@@ -74,6 +75,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/options-manager" element={<OptionsManager />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />

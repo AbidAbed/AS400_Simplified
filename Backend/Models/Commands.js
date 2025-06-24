@@ -1,21 +1,20 @@
 const mongoose = require("mongoose");
 
-
 // WORK WITH EQUATION BASED FILES , ( SHOULD SUPPORT CRUD IN BULK AND SINGLE)
 
 //--------  SCHEMA DEFINITION
-const EauationInformationsSchema = new mongoose.Schema({
+const CommandsSchema = new mongoose.Schema({
   name: { type: String, required: true },
 });
 
 //--------  RELATION DEFINITION
 
-EauationInformationsSchema.set("toObject", {
+CommandsSchema.set("toObject", {
   virtuals: true,
   versionKey: false,
   transform: removeId,
 });
-EauationInformationsSchema.set("toJSON", {
+CommandsSchema.set("toJSON", {
   virtuals: true,
   versionKey: false,
   transform: removeId,
@@ -27,8 +26,5 @@ function removeId(doc, ret) {
 }
 
 //--------  MODEL DEFINITION
-const EauationInformationsModel = mongoose.model(
-  "EauationInformations",
-  EauationInformationsSchema
-);
-module.exports = EauationInformationsModel;
+const CommandsModel = mongoose.model("Commands", CommandsSchema);
+module.exports = CommandsModel;

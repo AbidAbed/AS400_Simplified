@@ -6,14 +6,14 @@
   padding: 2rem;
   background: linear-gradient(135deg, #e6ecff, #ffffff);
   color: #2d3e50;
-  border: 2px solid #1203f3;
+  border: 2px solid #382ece;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.6s ease;
 }
 
 .highlight {
-  color: #1203f3;
+  color: #382ece;
   font-weight: 700;
 }
 

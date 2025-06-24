@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// CHOOSE UNIT OR CHOOSE COMMANDS TO RUY BATCHES
+
 //--------  SCHEMA DEFINITION
 const OptionsSchema = new mongoose.Schema({
   name: { type: String, required: true },
