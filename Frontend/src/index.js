@@ -16,7 +16,7 @@ root.render(
         <div className="index-parent">
           <Welcomer />
           <App />
-          {/* <div className="footer-credit">© All rights reserved  , Made By Abid Abed </div> */}
+          <div className="footer-credit">© All rights reserved  , Made By Abid Abed </div>
         </div>
       </BrowserRouter>
     </Provider>
